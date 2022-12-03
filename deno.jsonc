@@ -1,0 +1,12 @@
+{
+  "lint": {
+    "files": {
+      "exclude": ["solutions"]
+    }
+  },
+  "fmt": {
+    "options": {
+      "lineWidth": 120
+    }
+  }
+}
