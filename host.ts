@@ -9,8 +9,10 @@ let part: 1 | 2;
 let puzzleDrop: Promise<void> = Promise.reject();
 puzzleDrop.catch(() => {});
 let input: Promise<string>;
-let solutionFn: (input: string) => Promise<number>;
-const tests: [string, number?, number?][] = [];
+let solutionFn: (input: string) => Promise<Answer>;
+const tests: [string, Answer?, Answer?][] = [];
+
+type Answer = number | string;
 
 export function aoc(_year: number, _day: number, _part: 1 | 2) {
   if (year) throw new Error("aoc already called");
@@ -46,7 +48,7 @@ async function getPuzzleInput() {
 }
 
 export function test(inputArr: TemplateStringsArray) {
-  return ({ part1, part2 }: { part1?: number; part2?: number }) => {
+  return ({ part1, part2 }: { part1?: Answer; part2?: Answer }) => {
     const inputStr = inputArr.join("").trim();
     if (!inputStr) return;
     tests.push([inputStr, part1, part2]);
